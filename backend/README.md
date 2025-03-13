@@ -1,6 +1,7 @@
 # Backend (mine.)
+The backend is built with **Node.js, Express.js, and MongoDB**. 
 
-The backend is built with **Node.js, Express.js, and MongoDB**. It handles:
+## Features
 - **User Authentication** (JWT-based token system)
 - **Journal entry storage** (MongoDB)
 - **Mood tracking and NSFW options**
