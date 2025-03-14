@@ -20,6 +20,17 @@ exports.getJournalEntry = async (req, res) => { // creating fetch function for e
     }
 };
 
+exports.getAllJournalEntries = async (req, res) => { // creating fetch function for existing journals
+    try {
+        const entry = await JournalEntry.find();
+        res.json(entry);
+    }   catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+
+
 exports.updateJournalEntry = async (req, res) => { // update function for existing journals
     try {
         const updatedEntry = await JournalEntry.findByIdAndUpdate(
