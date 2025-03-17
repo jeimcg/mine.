@@ -1,5 +1,5 @@
 # mine. (emotional journaling app)
-little emotional journal w some 
+little emotional journal w some cool features for deeper insights and learning about one's self :)
 
 ## Features
 - **Journal Entries**: Write daily journal entries with timestamps.
