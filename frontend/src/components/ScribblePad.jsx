@@ -34,6 +34,10 @@ const ScribblePad = ({ onSave }) => {
     onSave(uri);
   };
 
+  const handleClearDrawing = () => {
+    setLines([]);
+  };
+
   return (
     <Box textAlign="center" marginTop={3}>
       <Stage
@@ -56,6 +60,9 @@ const ScribblePad = ({ onSave }) => {
       </Stage>
       <Button onClick={handleSave} variant="contained" color="primary" style={{ marginTop: "10px" }}>
         Save Drawing
+      </Button>
+      <Button onClick={handleClearDrawing} variant="contained" color="primary" style={{ marginTop: "10px" }}>
+        Clear Drawing
       </Button>
     </Box>
   );
