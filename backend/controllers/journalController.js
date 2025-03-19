@@ -51,6 +51,26 @@ exports.deleteJournalEntry = async (req, res) => { // delete function for journa
         if (!deletedEntry) return res.status(404).json({ message: "Entry not found" });
         res.json({ message: "Entry deleted successfully" });
     }   catch (error) {
-        res.status(500).json({ message: "error.message" });
+        res.status(500).json({ message: error.message });
+    }
+};
+
+exports.saveScribble = async (req, res) => { // function to save scribbles
+    try {
+        const { image } = req.body; // Get the Base64 image from request
+        const { id } = req.params; // Get the journal entry ID
+
+        // Find the journal entry
+        const entry = await JournalEntry.findById(id);
+        if (!entry) return res.status(404).json({ message: "Journal entry not found" });
+
+        // Update the scribble field
+        entry.scribble = image;
+        await entry.save();
+
+        res.json({ message: "Scribble saved successfully", entry });
+    } catch (error) {
+        console.error("Error saving scribble:", error);
+        res.status(500).json({ message: "Internal server error" });
     }
 };
